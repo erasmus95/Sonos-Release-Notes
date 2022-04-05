@@ -19,7 +19,7 @@ def site_changes(siteaddress : str):
     while True:
 
         # download the page
-        certificate_location = "C:\Users\Gregory Robben\SynologyDrive\Documents\GitHub\Sonos-Release-Notes\sonos-cert.cer"
+        certificate_location = "\Sonos-Release-Notes\sonos-cert.cer"
         response = requests.get(url, headers= headers, verify = False)
         # parse the downloaded homepage
         soup = BeautifulSoup(response.text, "lxml")
@@ -54,14 +54,8 @@ def site_changes(siteaddress : str):
         continue
 
 
-def main():
-    #S1 Updates
-    s1_URL = "https://support.sonos.com/s/article/4941?language=en_US"
-    site_changes(s1_URL)
-    
-    #S2 Updates
-    #s2_URL = "https://support.sonos.com/s/article/3521?language=en_US"
-    #site_changes(s2_URL)
+def main(url):
+    site_changes(url)
 
 if __name__ == "__main__":
     main()
