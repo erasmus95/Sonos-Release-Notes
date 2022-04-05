@@ -2,6 +2,9 @@
 import email
 import time
 import hashlib
+import certifi
+import urllib3
+urllib3.disable_warnings()
 from urllib.request import urlopen, Request
 import requests
 from bs4 import BeautifulSoup
@@ -9,19 +12,25 @@ import difflib
 import time
 from datetime import datetime
 import smtplib
+import ssl
 
 def site_changes(siteaddress : str):
     # target URL
     url = siteaddress
     # act like a browser
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0'}
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36'}
 
     PrevVersion = ""
     FirstRun = True
     while True:
 
         # download the page
-        certificate_location = "\Sonos-Release-Notes\sonos-cert.cer"
+        #certificate_location = 'C:\Users\Gregory_Robben\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\certifi\cacert.pem'
+
+        http = urllib3.PoolManager(cert_reqs ='CERT_REQUIRED',
+                                ca_certs=certifi.where()
+        )
+        #response = http.request('GET',siteaddress)#,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0'})
         response = requests.get(url, headers= headers, verify = False)
         # parse the downloaded homepage
         soup = BeautifulSoup(response.text, "lxml")
@@ -88,4 +97,4 @@ def main(url):
     site_changes(url)
 
 if __name__ == "__main__":
-    main()
+    main("https://support.sonos.com/s/article/3521?language=en_US")
