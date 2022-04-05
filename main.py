@@ -1,4 +1,5 @@
 # Importing libraries
+import email
 import time
 import hashlib
 from urllib.request import urlopen, Request
@@ -7,6 +8,7 @@ from bs4 import BeautifulSoup
 import difflib
 import time
 from datetime import datetime
+import smtplib
 
 def site_changes(siteaddress : str):
     # target URL
@@ -45,6 +47,7 @@ def site_changes(siteaddress : str):
                 diff = difflib.context_diff(OldPage,NewPage,n=10)
                 out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
                 print (out_text)
+                email_alert(out_text)
                 OldPage = NewPage
                 #print ('\n'.join(diff))
                 PrevVersion = soup
@@ -53,6 +56,33 @@ def site_changes(siteaddress : str):
         time.sleep(10)
         continue
 
+def email_alert(message:str):
+    # create an email message with just a subject line,
+    msg = '''\
+            From: gregoryrobben@gmail.com
+            Subject: Sonos app update
+
+            ''' + message
+    # set the 'from' address,
+    fromaddr = 'gregoryrobben@gmail.com'
+    # set the 'to' addresses,
+    toaddrs  = ['gregoryrobben@gmail.com']#,'A_SECOND_EMAIL_ADDRESS', 'A_THIRD_EMAIL_ADDRESS']
+    
+    # setup the email server,
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    # add my account login name and password,
+    server.login("gregoryrobben@gmail.com", "ujsazigsqebantxz")
+    
+    # Print the email's contents
+    print('From: ' + fromaddr)
+    print('To: ' + str(toaddrs))
+    print('Message: ' + msg)
+    
+    # send the email
+    server.sendmail(fromaddr, toaddrs, msg)
+    # disconnect from the server
+    server.quit()
 
 def main(url):
     site_changes(url)
