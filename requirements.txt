@@ -1,0 +1,7 @@
+bs4
+smtplib
+urllib3
+urllib
+difflib
+certifi
+hasblib
