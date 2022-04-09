@@ -2,6 +2,7 @@
 import email
 import time
 import hashlib
+from unittest import case
 import certifi
 import urllib3
 urllib3.disable_warnings()
@@ -14,9 +15,11 @@ from datetime import datetime
 import smtplib
 import ssl
 
-def site_changes(siteaddress : str):
+def site_changes(siteaddress : str,title:str):
     # target URL
     url = siteaddress
+    log_file = title + '_monitoring_log.txt'
+    updates_file = title + '_updates.txt'
     # act like a browser
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36'}
 
@@ -31,7 +34,7 @@ def site_changes(siteaddress : str):
                                 ca_certs=certifi.where()
         )
         #response = http.request('GET',siteaddress)#,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0'})
-        response = requests.get(url, headers= headers, verify = False)
+        response = requests.get(url, headers= headers, verify = certifi.where())
         # parse the downloaded homepage
         soup = BeautifulSoup(response.text, "lxml")
         
@@ -45,9 +48,13 @@ def site_changes(siteaddress : str):
             if FirstRun == True:
                 PrevVersion = soup
                 FirstRun = False
-                print ("Start Monitoring "+url+ ""+ str(datetime.now()))
+                start_message = "Start Monitoring "+url+ ""+ str(datetime.now())
+                write_to_log(log_file,start_message +"\n")
+                print (start_message)
             else:
-                print ("Changes detected at: "+ str(datetime.now()))
+                change_message = "Changes detected at: "+ str(datetime.now())
+                write_to_log(log_file,change_message +"\n")
+                #print (change_message)
                 OldPage = PrevVersion.splitlines()
                 NewPage = soup.splitlines()
                 # compare versions and highlight changes using difflib
@@ -55,15 +62,26 @@ def site_changes(siteaddress : str):
                 #diff = d.compare(OldPage, NewPage)
                 diff = difflib.context_diff(OldPage,NewPage,n=10)
                 out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
-                print (out_text)
+                write_to_log(updates_file,out_text)
+                write_to_log (log_file,"Update detected" + str(datetime.now()))
                 email_alert(out_text)
                 OldPage = NewPage
                 #print ('\n'.join(diff))
                 PrevVersion = soup
         else:
-            print( "No Changes "+ str(datetime.now()))
+            no_change_message = "No Changes "+ str(datetime.now())
+            write_to_log(log_file,no_change_message)
+            #print(no_change_message)
         time.sleep(10)
         continue
+def write_to_log(file:str,message:str):
+    '''
+    Writes the message to a privded log file
+    Parameters: file to write to, string to append to the log file
+    '''
+    with open(file,'a') as file:
+        file.write(message)
+
 
 def email_alert(message:str):
     # create an email message with just a subject line,
@@ -93,8 +111,8 @@ def email_alert(message:str):
     # disconnect from the server
     server.quit()
 
-def main(url):
-    site_changes(url)
+def main(url,title:str):
+    site_changes(url,title)
 
 if __name__ == "__main__":
     main("https://support.sonos.com/s/article/3521?language=en_US")
