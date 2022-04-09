@@ -34,7 +34,7 @@ def site_changes(siteaddress : str,title:str):
                                 ca_certs=certifi.where()
         )
         #response = http.request('GET',siteaddress)#,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0'})
-        response = requests.get(url, headers= headers, verify = certifi.where())
+        response = requests.get(url, headers= headers, verify = False)
         # parse the downloaded homepage
         soup = BeautifulSoup(response.text, "lxml")
         
@@ -72,7 +72,7 @@ def site_changes(siteaddress : str,title:str):
             no_change_message = "No Changes "+ str(datetime.now())
             write_to_log(log_file,no_change_message)
             #print(no_change_message)
-        time.sleep(10)
+        time.sleep(60)
         continue
 def write_to_log(file:str,message:str):
     '''
