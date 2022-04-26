@@ -1,5 +1,5 @@
 # Importing libraries
-from pickle import FALSE
+#from pickle import FALSE
 import urllib3
 urllib3.disable_warnings()
 from bs4 import BeautifulSoup
@@ -11,7 +11,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.service import Service
+from webdriver_manager.firefox import GeckoDriverManager
 from email.message import EmailMessage
 
 def is_initial_run(file : str):
@@ -97,8 +98,10 @@ def site_changes(siteaddress : str,title:str):
     options.add_argument('--headless')
     # executable_path param is not needed if you updated PATH
     #PATH = "C:\Users\Gregory Robben\SynologyDrive\Documents\Drivers\geckodriver.exe"
-    PATH = "C:\\Users\\Gregory Robben\\SynologyDrive\\Documents\\Drivers\geckodriver.exe"
-    s = Service(PATH)
+    #PATH = "C:\\Users\\Gregory Robben\\SynologyDrive\\Documents\\Drivers\geckodriver.exe"
+    #s = Service(PATH)
+    s = Service(GeckoDriverManager().install())
+
     browser = webdriver.Firefox(options=options, service=s)
     
     #determin if this is the first run of the script for the given site.
