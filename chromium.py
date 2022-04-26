@@ -16,7 +16,7 @@ def get_soup(siteaddress):
     try:
         s = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
     except ValueError:
-        s = Service('/usr/bin/chromiumdirver')
+        s = Service('/usr/bin/chromiumdriver')
     except FileNotFoundError:
         return "Error: driver not found"
     

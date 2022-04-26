@@ -18,7 +18,7 @@ def get_soup(siteaddress):
     try:
         s = Service(ChromeDriverManager().install())
     except ValueError:
-        s = Service('/usr/bin/chromedirver')
+        s = Service('/usr/bin/chromedriver')
     except FileNotFoundError:
         return "Error: driver not found"
     browser = webdriver.Chrome(options=options, service=s)

@@ -16,7 +16,7 @@ def get_soup(siteaddress):
     try:
         service = Service(GeckoDriverManager().install())
     except ValueError:
-        service = Service('/usr/bin/chromiumdirver')
+        service = Service('/usr/bin/geckodriver')
     except FileNotFoundError:
         return "Error: driver not found"
     # using webdriver-manager we can dynamically get the driver location and avoid hard coding it
