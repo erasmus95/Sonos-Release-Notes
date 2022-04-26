@@ -14,6 +14,11 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 from email.message import EmailMessage
+#adding chrome driver support due to ARM not being supported by firefox
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 def is_initial_run(file : str):
     '''
@@ -94,16 +99,18 @@ def site_changes(siteaddress : str,title:str):
     # act like a browser
     #headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36'}
 
-    options = webdriver.FirefoxOptions()
+    #options = webdriver.FirefoxOptions()
+    options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     # executable_path param is not needed if you updated PATH
     #PATH = "C:\Users\Gregory Robben\SynologyDrive\Documents\Drivers\geckodriver.exe"
     #PATH = "C:\\Users\\Gregory Robben\\SynologyDrive\\Documents\\Drivers\geckodriver.exe"
     #s = Service(PATH)
-    s = Service(GeckoDriverManager().install())
+    #s = Service(GeckoDriverManager().install())
+    s = Service(ChromeDriverManager().install())
 
-    browser = webdriver.Firefox(options=options, service=s)
-    
+    #browser = webdriver.Firefox(options=options, service=s)
+    browser = webdriver.Chrome(options=options, service=s)
     #determin if this is the first run of the script for the given site.
     FirstRun = is_initial_run(PreviousVersion_file)
 
