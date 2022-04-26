@@ -13,8 +13,13 @@ def get_soup(siteaddress):
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    try:
+        s = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+    except ValueError:
+        s = Service('/usr/bin/chromiumdirver')
+    except FileNotFoundError:
+        return "Error: driver not found"
     
-    s = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
     browser = webdriver.Chrome(options=options, service=s)
     
     try:
