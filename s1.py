@@ -1,4 +1,4 @@
-from main import main, email_alert
+from main import main
 
 #S1 Updates
 s1_URL = "https://support.sonos.com/s/article/4941?language=en_US"

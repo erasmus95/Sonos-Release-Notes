@@ -1,23 +1,9 @@
-# Importing libraries
-#from pickle import FALSE
 import urllib3
 urllib3.disable_warnings()
-from bs4 import BeautifulSoup
 import difflib
-from datetime import datetime
 import smtplib
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.firefox.service import Service
-from webdriver_manager.firefox import GeckoDriverManager
+from datetime import datetime
 from email.message import EmailMessage
-#adding chrome driver support due to ARM not being supported by firefox
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 def is_initial_run(file : str):
@@ -90,7 +76,7 @@ def email_alert(message:str):
     # disconnect from the server
     server.quit()
 
-def site_changes(siteaddress : str,title:str):
+def site_changes(siteaddress : str,title:str,browser:str):
     #set our static variables
     url = siteaddress
     log_file = title + '_monitoring_log.txt'
@@ -98,58 +84,40 @@ def site_changes(siteaddress : str,title:str):
     PreviousVersion_file = title + '_PreviousVersion.txt'
     # act like a browser
     #headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36'}
-
-    #options = webdriver.FirefoxOptions()
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    # executable_path param is not needed if you updated PATH
-    #PATH = "C:\Users\Gregory Robben\SynologyDrive\Documents\Drivers\geckodriver.exe"
-    #PATH = "C:\\Users\\Gregory Robben\\SynologyDrive\\Documents\\Drivers\geckodriver.exe"
-    #s = Service(PATH)
-    #s = Service(GeckoDriverManager().install())
-    s = Service(ChromeDriverManager().install())
-
-    #browser = webdriver.Firefox(options=options, service=s)
-    browser = webdriver.Chrome(options=options, service=s)
+    browser = browser.lower()
+    if browser == "firefox":
+        from firefox import get_soup
+    elif browser == "chrome":
+        from chrome import get_soup
+    elif browser == "chromium":
+        from chromium import get_soup
+    
     #determin if this is the first run of the script for the given site.
     FirstRun = is_initial_run(PreviousVersion_file)
-
     if FirstRun:
         PrevVersion = ""
     else:
         PrevVersion = read_previous_version(PreviousVersion_file)
-    
-    try:
-    
-        browser.get("https://support.sonos.com/s/article/3521?language=en_US")
-        timeout_in_seconds = 10
-        WebDriverWait(browser, timeout_in_seconds).until(ec.presence_of_element_located((By.CLASS_NAME, 'row')))
-        #time.sleep(10)
-        html = browser.page_source
-        #soup = BeautifulSoup(html, features="html.parser")
-        # parse the webpage for lxml
-        soup = BeautifulSoup(html, 'html.parser')
-        
-        soup = soup.get_text()
-        #print(soup)
-    except TimeoutException:
-        print("Did not find class_name 'row'...giving up...")
-    finally:
-        browser.quit()
-    
-    CurVersion = current_version(soup)
+    #order some soup
+    soup = get_soup(siteaddress)
+    if soup[:4]=="Error":
+        write_to_log(log_file,soup)
+        print(str(datetime.now()) + " - Waiter! Waiter! There's a fly in my soup!")
+        exit() #if there is a fly in the soup we are leaving
+
     # compare the page text to the previous version
+    CurVersion = current_version(soup)
     if PrevVersion != CurVersion:
         # on the first run - just memorize the page
         if FirstRun == True:
             PrevVersion = CurVersion
             Initial_Run(PreviousVersion_file,CurVersion)
             #FirstRun = False
-            start_message = "Start Monitoring "+url+ ""+ str(datetime.now())
+            start_message = str(datetime.now()) + " - Start Monitoring "+ url
             write_to_log(log_file,start_message +"\n")
             print (start_message)
         else:
-            change_message = "Changes detected at: "+ str(datetime.now())
+            change_message = str(datetime.now()) + " - Changes detected"
             write_to_log(log_file,change_message +"\n")
             print (change_message)
             OldPage = PrevVersion.splitlines()
@@ -160,19 +128,19 @@ def site_changes(siteaddress : str,title:str):
             diff = difflib.context_diff(OldPage,NewPage,n=10)
             out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
             write_to_log(updates_file,out_text)
-            write_to_log (log_file,"Update detected" + str(datetime.now()))
+            write_to_log (log_file,str(datetime.now()) + " - " + "Update detected")
             email_alert(out_text)
             #OldPage = NewPage
             #print ('\n'.join(diff))
             #PrevVersion = CurVersion
             Initial_Run(PreviousVersion_file,CurVersion)
     else:
-        no_change_message = "No Changes "+ str(datetime.now())
+        no_change_message = str(datetime.now()) + " - " + "No Changes "
         write_to_log(log_file,no_change_message)
         print(no_change_message)
 
-def main(url,title:str):
-    site_changes(url,title)
+def main(url,title:str,browser):
+    site_changes(url,title,browser)
 
 if __name__ == "__main__":
-    main("https://support.sonos.com/s/article/3521?language=en_US","s2")
+    main("https://support.sonos.com/s/article/3521?language=en_US","s2","Chrome")
