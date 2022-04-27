@@ -26,7 +26,7 @@ def get_soup(siteaddress):
     
     try:
         browser.get(siteaddress)
-        timeout_in_seconds = 10
+        timeout_in_seconds = 1200
         #WebDriverWait waits until a certain item if found on the webpage, in this case class = 'row'. 
         # This is because some pages load in data after the inital load
         WebDriverWait(browser, timeout_in_seconds).until(ec.presence_of_element_located((By.CLASS_NAME, 'row')))
