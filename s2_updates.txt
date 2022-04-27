@@ -154,4 +154,30 @@
 !         You can now change the volume for Beam (Gen 2)’s height audio channels.
           Bug fixes and performance enhancements.
   System requirements
-  Android 8.0 or lateriOS 12 or lateriPadOS 13 or latermacOS 10.11 or laterWindows 8 or laterFire OS 7 and higher
+  Android 8.0 or lateriOS 12 or lateriPadOS 13 or latermacOS 10.11 or laterWindows 8 or laterFire OS 7 and higher***
+---
+***************
+*** 1,22 ****
+- Current software version
+- 14.6
+- Release date: 4/19/2022
+-
+-
+-
+-
+- In this update:
+-
+-         We’ve adjusted Roam’s setup procedure to improve the overall setup experience.
+-
+-         You can now change the volume for Beam (Gen 2)’s height audio channels.
+-
+-         Bug fixes and performance enhancements.
+-
+-
+-
+-
+-
+-
+- System requirements
+- Android 8.0 or lateriOS 12 or lateriPadOS 13 or latermacOS 10.11 or laterWindows 8 or laterFire OS 7 and higher
+--- 0 ----

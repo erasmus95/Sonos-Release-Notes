@@ -33,4 +33,6 @@ Update detected2022-04-25 18:01:43.102549Changes detected at: 2022-04-25 18:25:1
 Update detected2022-04-25 18:25:16.692142Changes detected at: 2022-04-25 18:25:59.840233
 Update detected2022-04-25 18:25:59.842234Changes detected at: 2022-04-25 18:26:54.158423
 Update detected2022-04-25 18:26:54.160425Changes detected at: 2022-04-25 18:28:02.142361
-Update detected2022-04-25 18:28:02.144362No Changes 2022-04-25 22:32:34.552482No Changes 2022-04-25 22:33:31.607025No Changes 2022-04-25 23:00:45.162197No Changes 2022-04-26 18:15:02.198522No Changes 2022-04-26 18:53:24.6266452022-04-26 19:04:33.120270 - No Changes 2022-04-26 19:06:38.138233 - No Changes 2022-04-26 19:08:58.556934 - No Changes 
+Update detected2022-04-25 18:28:02.144362No Changes 2022-04-25 22:32:34.552482No Changes 2022-04-25 22:33:31.607025No Changes 2022-04-25 23:00:45.162197No Changes 2022-04-26 18:15:02.198522No Changes 2022-04-26 18:53:24.6266452022-04-26 19:04:33.120270 - No Changes 2022-04-26 19:06:38.138233 - No Changes 2022-04-26 19:08:58.556934 - No Changes 2022-04-26 19:43:11.705281 - Changes detected
+2022-04-26 19:43:11.707283 - Update detected2022-04-26 19:44:04.880489 - No Changes 2022-04-26 19:49:12.175134 - No Changes 2022-04-26 19:49:53.294979 - Start Monitoring https://support.sonos.com/s/article/3521?language=en_US
+Error: Did not find class_name 'row'...could not parse webpageError: Did not find class_name 'row'...could not parse webpage

@@ -100,13 +100,16 @@ def site_changes(siteaddress : str,title:str,browser:str):
         PrevVersion = read_previous_version(PreviousVersion_file)
     #order some soup
     soup = get_soup(siteaddress)
-    if soup[:4]=="Error":
+    if soup[:5]=="Error":
         write_to_log(log_file,soup)
         print(str(datetime.now()) + " - Waiter! Waiter! There's a fly in my soup!")
         exit() #if there is a fly in the soup we are leaving
 
     # compare the page text to the previous version
     CurVersion = current_version(soup)
+    print(CurVersion)
+    print("vs.")
+    print(PrevVersion)
     if PrevVersion != CurVersion:
         # on the first run - just memorize the page
         if FirstRun == True:
@@ -143,4 +146,4 @@ def main(url,title:str,browser):
     site_changes(url,title,browser)
 
 if __name__ == "__main__":
-    main("https://support.sonos.com/s/article/3521?language=en_US","s2","Chrome")
+    main("https://support.sonos.com/s/article/3521?language=en_US","s2","chromium")
