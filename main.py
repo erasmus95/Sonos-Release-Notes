@@ -15,6 +15,7 @@ def is_initial_run(file : str):
     
     if count > 1: return False
     else: return True
+
 def current_version(soup : str):
     #find the line number of "Current software version"
     start = soup.find("Current software version")
@@ -82,8 +83,7 @@ def site_changes(siteaddress : str,title:str,browser:str):
     log_file = title + '_monitoring_log.txt'
     updates_file = title + '_updates.txt'
     PreviousVersion_file = title + '_PreviousVersion.txt'
-    # act like a browser
-    #headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36'}
+
     browser = browser.lower()
     if browser == "firefox":
         from firefox import get_soup
