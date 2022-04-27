@@ -7,7 +7,8 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.utils import ChromeType
-
+import os
+os.environ['WDM_LOG_LEVEL'] = '0'
 def get_soup(siteaddress):
 
     options = webdriver.ChromeOptions()
@@ -16,6 +17,7 @@ def get_soup(siteaddress):
     try:
         s = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
     except ValueError:
+        print('Error downloading latest driver, trying the local driver now...')
         s = Service('/usr/lib/chromium-browser/chromedriver')
     except FileNotFoundError:
         return "Error: driver not found"
@@ -32,7 +34,7 @@ def get_soup(siteaddress):
         soup = soup.get_text()
         #print(soup)
     except TimeoutException:
-        print("Did not find class_name 'row'...giving up...")
+        #print("Did not find class_name 'row'...giving up...")
         soup = "Error: Did not find class_name 'row'...could not parse webpage" 
     finally:
         browser.quit()

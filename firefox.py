@@ -6,7 +6,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.firefox import GeckoDriverManager
-
+import os
+os.environ['WDM_LOG_LEVEL'] = '0'
 
 def get_soup(siteaddress):
     options = webdriver.FirefoxOptions()
@@ -35,7 +36,7 @@ def get_soup(siteaddress):
         soup = soup.get_text()
         #print(soup)
     except TimeoutException:
-        print("Did not find class_name 'row'...giving up...")
+        #print("Did not find class_name 'row'...giving up...")
         soup = "Error: Did not find class_name 'row'...could not parse webpage" 
     finally:
         browser.quit()

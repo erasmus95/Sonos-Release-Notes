@@ -101,15 +101,16 @@ def site_changes(siteaddress : str,title:str,browser:str):
     #order some soup
     soup = get_soup(siteaddress)
     if soup[:5]=="Error":
-        write_to_log(log_file,soup)
-        print(str(datetime.now()) + " - Waiter! Waiter! There's a fly in my soup!")
+        error_msg = str(datetime.now()) + " - Waiter! Waiter! There's a fly in my soup!\n"+soup
+        write_to_log(log_file,error_msg)
+        #print(str(datetime.now()) + " - Waiter! Waiter! There's a fly in my soup!")
         exit() #if there is a fly in the soup we are leaving
 
     # compare the page text to the previous version
     CurVersion = current_version(soup)
-    print(CurVersion)
-    print("vs.")
-    print(PrevVersion)
+    #print(CurVersion)
+    #print("vs.")
+    #print(PrevVersion)
     if PrevVersion != CurVersion:
         # on the first run - just memorize the page
         if FirstRun == True:
@@ -118,11 +119,11 @@ def site_changes(siteaddress : str,title:str,browser:str):
             #FirstRun = False
             start_message = str(datetime.now()) + " - Start Monitoring "+ url
             write_to_log(log_file,start_message +"\n")
-            print (start_message)
+            #print (start_message)
         else:
             change_message = str(datetime.now()) + " - Changes detected"
             write_to_log(log_file,change_message +"\n")
-            print (change_message)
+            #print (change_message)
             OldPage = PrevVersion.splitlines()
             NewPage = CurVersion.splitlines()
             # compare versions and highlight changes using difflib
@@ -140,7 +141,7 @@ def site_changes(siteaddress : str,title:str,browser:str):
     else:
         no_change_message = str(datetime.now()) + " - " + "No Changes "
         write_to_log(log_file,no_change_message)
-        print(no_change_message)
+        #print(no_change_message)
 
 def main(url,title:str,browser):
     site_changes(url,title,browser)

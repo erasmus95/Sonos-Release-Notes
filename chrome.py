@@ -33,7 +33,7 @@ def get_soup(siteaddress):
         soup = soup.get_text()
         #print(soup)
     except TimeoutException:
-        print("Did not find class_name 'row'...giving up...")
+        #print("Did not find class_name 'row'...giving up...")
         soup = "Error: Did not find class_name 'row'...could not parse webpage" 
     finally:
         browser.quit()
