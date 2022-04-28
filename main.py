@@ -101,7 +101,7 @@ def site_changes(siteaddress : str,title:str,browser:str):
     #order some soup
     soup = get_soup(siteaddress)
     if soup[:5]=="Error":
-        error_msg = str(datetime.now()) + " - Waiter! Waiter! There's a fly in my soup!\n"+soup
+        error_msg = str(datetime.now()) + " - Waiter! Waiter! There's a fly in my soup!\n"+soup+"\n"
         write_to_log(log_file,error_msg)
         #print(str(datetime.now()) + " - Waiter! Waiter! There's a fly in my soup!")
         exit() #if there is a fly in the soup we are leaving
@@ -132,14 +132,14 @@ def site_changes(siteaddress : str,title:str,browser:str):
             diff = difflib.context_diff(OldPage,NewPage,n=10)
             out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
             write_to_log(updates_file,out_text)
-            write_to_log (log_file,str(datetime.now()) + " - " + "Update detected")
+            write_to_log (log_file,str(datetime.now()) + " - " + "Update detected \n")
             email_alert(out_text)
             #OldPage = NewPage
             #print ('\n'.join(diff))
             #PrevVersion = CurVersion
             Initial_Run(PreviousVersion_file,CurVersion)
     else:
-        no_change_message = str(datetime.now()) + " - " + "No Changes "
+        no_change_message = str(datetime.now()) + " - " + "No Changes \n"
         write_to_log(log_file,no_change_message)
         #print(no_change_message)
 
