@@ -1,10 +1,11 @@
+#!user/bin/env python3
 import urllib3
 urllib3.disable_warnings()
 import difflib
 import smtplib
 from datetime import datetime
 from email.message import EmailMessage
-
+import os
 
 def is_initial_run(file : str):
     '''
@@ -79,10 +80,12 @@ def email_alert(message:str):
 
 def site_changes(siteaddress : str,title:str,browser:str):
     #set our static variables
+    here = os.path.dirname(os.path.abspath(__file__))
     url = siteaddress
-    log_file = title + '_monitoring_log.txt'
-    updates_file = title + '_updates.txt'
-    PreviousVersion_file = title + '_PreviousVersion.txt'
+    log_file = os.path.join(here, title + '_monitoring_log.txt')
+    updates_file = os.path.join(here, title + '_updates.txt')
+    PreviousVersion_file = os.path.join(here, title + '_PreviousVersion.txt')
+
 
     browser = browser.lower()
     if browser == "firefox":

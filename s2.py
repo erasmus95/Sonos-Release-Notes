@@ -1,3 +1,4 @@
+ #!user/bin/env python3
  #S2 Updates
 
 from main import main
