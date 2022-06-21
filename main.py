@@ -1,5 +1,6 @@
 #!user/bin/env python3
 import urllib3
+
 urllib3.disable_warnings()
 import difflib
 import os

@@ -37,4 +37,4 @@ def get_soup(siteaddress):
         soup = "Error: Did not find class_name 'row'...could not parse webpage" 
     finally:
         browser.quit()
-    return soup
+    return soup.prettify()

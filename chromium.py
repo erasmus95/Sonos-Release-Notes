@@ -1,3 +1,5 @@
+import os
+
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
@@ -7,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.utils import ChromeType
-import os
+
 os.environ['WDM_LOG_LEVEL'] = '0'
 def get_soup(siteaddress):
 
