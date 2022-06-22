@@ -13,8 +13,8 @@ os.environ['WDM_LOG_LEVEL'] = '0'
 def get_soup(siteaddress):
 
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    #options.add_argument('--headless')
+    #options.add_experimental_option('excludeSwitches', ['enable-logging'])
     try:
         s = Service(ChromeDriverManager().install())
     except ValueError:

@@ -12,8 +12,8 @@ os.environ['WDM_LOG_LEVEL'] = '0'
 def get_soup(siteaddress):
     options = webdriver.FirefoxOptions()
     # using headless so that a window doesn't pop-up and need to load as well
-    options.add_argument('--headless')
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    #options.add_argument('--headless')
+    #options.add_experimental_option('excludeSwitches', ['enable-logging'])
     try:
         service = Service(GeckoDriverManager().install())
     except ValueError:
