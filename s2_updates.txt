@@ -948,4 +948,259 @@
                           </p>
 !                         <p data-aura-rendered-by="12:318;a">
                           </p>
+!                         <h2 data-aura-rendered-by="12:318;a">***
+---
+***************
+*** 1,24 ****
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2  id="14.10">
+                           14.10
+                          </h2>
+!                         <p >
+                           <strong>
+                            Release date:
+                           </strong>
+                           6/21/2022
+                          </p>
+!                         <hr />
+!                         <div class="row" >
+                           <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Improvements around delayed audio with home theater surrounds and Subs, as well as audio dropouts due to delayed audio.
+                             </li>
+--- 1,24 ----
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2 data-aura-rendered-by="12:316;a" id="14.10">
+                           14.10
+                          </h2>
+!                         <p data-aura-rendered-by="12:316;a">
+                           <strong>
+                            Release date:
+                           </strong>
+                           6/21/2022
+                          </p>
+!                         <hr data-aura-rendered-by="12:316;a"/>
+!                         <div class="row" data-aura-rendered-by="12:316;a">
+                           <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Improvements around delayed audio with home theater surrounds and Subs, as well as audio dropouts due to delayed audio.
+                             </li>
+***************
+*** 52,66 ****
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p >
+                          </p>
+!                         <p >
+                          </p>
+!                         <h2 >
+--- 52,66 ----
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p data-aura-rendered-by="12:316;a">
+                          </p>
+!                         <p data-aura-rendered-by="12:316;a">
+                          </p>
+!                         <h2 data-aura-rendered-by="12:316;a">***
+---
+***************
+*** 1,24 ****
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2 data-aura-rendered-by="12:316;a" id="14.10">
+                           14.10
+                          </h2>
+!                         <p data-aura-rendered-by="12:316;a">
+                           <strong>
+                            Release date:
+                           </strong>
+                           6/21/2022
+                          </p>
+!                         <hr data-aura-rendered-by="12:316;a"/>
+!                         <div class="row" data-aura-rendered-by="12:316;a">
+                           <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Improvements around delayed audio with home theater surrounds and Subs, as well as audio dropouts due to delayed audio.
+                             </li>
+--- 1,24 ----
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2 data-aura-rendered-by="12:318;a" id="14.10">
+                           14.10
+                          </h2>
+!                         <p data-aura-rendered-by="12:318;a">
+                           <strong>
+                            Release date:
+                           </strong>
+                           6/21/2022
+                          </p>
+!                         <hr data-aura-rendered-by="12:318;a"/>
+!                         <div class="row" data-aura-rendered-by="12:318;a">
+                           <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Improvements around delayed audio with home theater surrounds and Subs, as well as audio dropouts due to delayed audio.
+                             </li>
+***************
+*** 52,66 ****
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p data-aura-rendered-by="12:316;a">
+                          </p>
+!                         <p data-aura-rendered-by="12:316;a">
+                          </p>
+!                         <h2 data-aura-rendered-by="12:316;a">
+--- 52,66 ----
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p data-aura-rendered-by="12:318;a">
+                          </p>
+!                         <p data-aura-rendered-by="12:318;a">
+                          </p>
+!                         <h2 data-aura-rendered-by="12:318;a">***
+---
+***************
+*** 1,24 ****
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2 data-aura-rendered-by="12:318;a" id="14.10">
+                           14.10
+                          </h2>
+!                         <p data-aura-rendered-by="12:318;a">
+                           <strong>
+                            Release date:
+                           </strong>
+                           6/21/2022
+                          </p>
+!                         <hr data-aura-rendered-by="12:318;a"/>
+!                         <div class="row" data-aura-rendered-by="12:318;a">
+                           <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Improvements around delayed audio with home theater surrounds and Subs, as well as audio dropouts due to delayed audio.
+                             </li>
+--- 1,24 ----
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2 id="14.10">
+                           14.10
+                          </h2>
+!                         <p>
+                           <strong>
+                            Release date:
+                           </strong>
+                           6/21/2022
+                          </p>
+!                         <hr/>
+!                         <div class="row">
+                           <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Improvements around delayed audio with home theater surrounds and Subs, as well as audio dropouts due to delayed audio.
+                             </li>
+***************
+*** 52,66 ****
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p data-aura-rendered-by="12:318;a">
+                          </p>
+!                         <p data-aura-rendered-by="12:318;a">
+                          </p>
 !                         <h2 data-aura-rendered-by="12:318;a">
+--- 52,66 ----
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p>
+                          </p>
+!                         <p>
+                          </p>
+!                         <h2>

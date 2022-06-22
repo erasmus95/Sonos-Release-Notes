@@ -120,20 +120,22 @@ def fancy_email_alert(message: str):
     ]  # ,'A_SECOND_EMAIL_ADDRESS', 'A_THIRD_EMAIL_ADDRESS']
 
     ## setup the email server,
-    server = smtplib.SMTP("smtp.gmail.com", 587)
-    server.starttls()
-    # add my account login name and password,
-    server.login("gregoryrobben@gmail.com", "ujsazigsqebantxz")
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        # add my account login name and password,
+        server.login("gregoryrobben@gmail.com", "ujsazigsqebantxz")
 
-   # # Print the email's contents
-    #print("From: " + fromaddr)
-    #print("To: " + str(toaddrs))
-    #print("Message: " + message.replace("Current", "Previous", 1))
+    # # Print the email's contents
+        #print("From: " + fromaddr)
+        #print("To: " + str(toaddrs))
+        #print("Message: " + message.replace("Current", "Previous", 1))
 
-    ## send the email
-    server.sendmail(fromaddr,toaddrs,text)
-    ## disconnect from the server
-    server.quit()
+        ## send the email
+        server.sendmail(fromaddr,toaddrs,text)
+    finally:
+        ## disconnect from the server
+        server.quit()
 
 def site_changes(siteaddress: str, title: str, browser: str):
     # set our static variables
@@ -178,12 +180,11 @@ def site_changes(siteaddress: str, title: str, browser: str):
     CurVersion =current_version(soup)
     Write_To_File(compareVersion_file, CurVersion)
     CurVersion = read_previous_version(compareVersion_file)
-    for line in CurVersion:
-        re.sub('data-aura-rendered-by="\d\d:\d\d\d;a"','',line)
+    CurVersion = re.sub(' data-aura-rendered-by="\d\d:\d\d\d;a"','',CurVersion)
     
     print(CurVersion)
-    # print("vs.")
-    # print(PrevVersion)
+    print("vs.")
+    print(PrevVersion)
     if PrevVersion != CurVersion:
         print('Current version is different')
         # on the first run - just memorize the page
