@@ -12,7 +12,7 @@ os.environ['WDM_LOG_LEVEL'] = '0'
 
 def get_soup(siteaddress):
 
-    #options = webdriver.ChromeOptions()
+    options = webdriver.ChromeOptions()
     #options.add_argument('--headless')
     #options.add_experimental_option('excludeSwitches', ['enable-logging'])
     #try:
@@ -21,8 +21,8 @@ def get_soup(siteaddress):
     #    s = Service('/usr/bin/chromedriver')
     #except FileNotFoundError:
     #    return "Error: driver not found"
-    #browser = webdriver.Chrome(options=options, service=s)
-    browser = webdriver.Chrome()
+    browser = webdriver.Chrome(options=options)#, service=s)
+    #browser = webdriver.Chrome()
     try:
         browser.get(siteaddress)
         timeout_in_seconds = 1200
@@ -30,6 +30,7 @@ def get_soup(siteaddress):
         html = browser.page_source
         # parse the webpage for html
         soup = BeautifulSoup(html, 'html.parser')
+
         #soup = soup.get_text()
         soup = soup.prettify()
         #print(soup)

@@ -9,7 +9,7 @@ from datetime import datetime
 from email.message import EmailMessage
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
+import re
 
 def is_initial_run(file: str):
     """
@@ -29,14 +29,14 @@ def current_version(soup: str):
     start = soup.find("Current software version")
     # find the line number of "Previous software vesrions"
     end = soup.find("Previous software versions")
+    
+    #scrubed_aura_time = re.sub('data-aura-rendered-by="\d\d:\d\d\d;a"',soup[start:end])
+    return soup[start:end].replace('data-aura-rendered-by="12:319;a"',"").strip()  # .encode(encoding = 'UTF-8', errors = 'strict')
+    
 
-    return soup[start:end].strip()  # .encode(encoding = 'UTF-8', errors = 'strict')
-
-
-def Initial_Run(file_to_write_to: str, text_to_write):
+def Write_To_File(file_to_write_to: str, text_to_write):
     """
-    If the PreviousVersion file is empty then it is the initial run.
-    The soup is written to the file to act as the reference for the script going forward until an update occurs
+    The provided text is written to the file
     """
     with open(file_to_write_to, "w", encoding="utf-8") as file:
         file.write(text_to_write)
@@ -142,6 +142,7 @@ def site_changes(siteaddress: str, title: str, browser: str):
     log_file = os.path.join(here, title + "_monitoring_log.txt")
     updates_file = os.path.join(here, title + "_updates.txt")
     PreviousVersion_file = os.path.join(here, title + "_PreviousVersion.txt")
+    compareVersion_file = os.path.join(here, title + "_compareVersion.txt")
 
     browser = browser.lower()
     if browser == "firefox":
@@ -171,8 +172,16 @@ def site_changes(siteaddress: str, title: str, browser: str):
         exit()  # if there is a fly in the soup we are leaving
 
     # compare the page text to the previous version
-    CurVersion = current_version(soup)
-    # print(CurVersion)
+
+    #to clean up and remove embeded information we take the soup, encode it to UTF-8, write it to a file, read it back so we have strings, replace the timestamps with nothing, 
+    #and then continue with our comparisons using the destamped version as a variable...this is probably terrible but it works...
+    CurVersion =current_version(soup)
+    Write_To_File(compareVersion_file, CurVersion)
+    CurVersion = read_previous_version(compareVersion_file)
+    for line in CurVersion:
+        re.sub('data-aura-rendered-by="\d\d:\d\d\d;a"','',line)
+    
+    print(CurVersion)
     # print("vs.")
     # print(PrevVersion)
     if PrevVersion != CurVersion:
@@ -181,7 +190,7 @@ def site_changes(siteaddress: str, title: str, browser: str):
         print(FirstRun)
         if FirstRun == True:
             PrevVersion = CurVersion
-            Initial_Run(PreviousVersion_file, CurVersion)
+            Write_To_File(PreviousVersion_file, CurVersion)
             # FirstRun = False
             start_message = str(datetime.now()) + " - Start Monitoring " + url
             write_to_log(log_file, start_message + "\n")
@@ -206,7 +215,7 @@ def site_changes(siteaddress: str, title: str, browser: str):
             # OldPage = NewPage
             # print ('\n'.join(diff))
             # PrevVersion = CurVersion
-            Initial_Run(PreviousVersion_file, CurVersion)
+            Write_To_File(PreviousVersion_file, CurVersion)
     else:
         no_change_message = str(datetime.now()) + " - " + "No Changes \n"
         write_to_log(log_file, no_change_message)
