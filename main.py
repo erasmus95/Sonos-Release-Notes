@@ -7,6 +7,8 @@ import os
 import smtplib
 from datetime import datetime
 from email.message import EmailMessage
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 
 def is_initial_run(file: str):
@@ -93,6 +95,45 @@ def email_alert(message: str):
     # disconnect from the server
     server.quit()
 
+def fancy_email_alert(message: str):
+
+    # create an email message with just a subject line,
+    msg = MIMEMultipart()
+    msg["From"] = "gregoryrobben@gmail.com"
+    msg["To"] = "gregoryrobben@gmail.com"
+    msg["Subject"] = "Sonos app update!"
+    #msg.set_payload(
+    #    message.replace("Current", "Previous", 1).encode(
+    #        encoding="UTF-8", errors="strict"
+    #    )
+    #)
+    msg.attach(MIMEText("".join(message),'html'))#.replace("Current", "Previous", 1), 'html'))
+    
+    text = msg.as_string()
+
+    
+    ## set the 'from' address,
+    fromaddr = "gregoryrobben@gmail.com"
+    ## set the 'to' addresses,
+    toaddrs = [
+        "gregoryrobben@gmail.com"
+    ]  # ,'A_SECOND_EMAIL_ADDRESS', 'A_THIRD_EMAIL_ADDRESS']
+
+    ## setup the email server,
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.starttls()
+    # add my account login name and password,
+    server.login("gregoryrobben@gmail.com", "ujsazigsqebantxz")
+
+   # # Print the email's contents
+    #print("From: " + fromaddr)
+    #print("To: " + str(toaddrs))
+    #print("Message: " + message.replace("Current", "Previous", 1))
+
+    ## send the email
+    server.sendmail(fromaddr,toaddrs,text)
+    ## disconnect from the server
+    server.quit()
 
 def site_changes(siteaddress: str, title: str, browser: str):
     # set our static variables
@@ -135,18 +176,20 @@ def site_changes(siteaddress: str, title: str, browser: str):
     # print("vs.")
     # print(PrevVersion)
     if PrevVersion != CurVersion:
+        print('Current version is different')
         # on the first run - just memorize the page
+        print(FirstRun)
         if FirstRun == True:
             PrevVersion = CurVersion
             Initial_Run(PreviousVersion_file, CurVersion)
             # FirstRun = False
             start_message = str(datetime.now()) + " - Start Monitoring " + url
             write_to_log(log_file, start_message + "\n")
-            # print (start_message)
+            print (start_message)
         else:
             change_message = str(datetime.now()) + " - Changes detected"
             write_to_log(log_file, change_message + "\n")
-            # print (change_message)
+            print (change_message)
             OldPage = PrevVersion.splitlines()
             NewPage = CurVersion.splitlines()
             # compare versions and highlight changes using difflib
@@ -158,7 +201,8 @@ def site_changes(siteaddress: str, title: str, browser: str):
             )
             write_to_log(updates_file, out_text)
             write_to_log(log_file, str(datetime.now()) + " - " + "Update detected \n")
-            email_alert(out_text)
+            #email_alert(out_text)
+            fancy_email_alert(NewPage)
             # OldPage = NewPage
             # print ('\n'.join(diff))
             # PrevVersion = CurVersion
@@ -166,7 +210,7 @@ def site_changes(siteaddress: str, title: str, browser: str):
     else:
         no_change_message = str(datetime.now()) + " - " + "No Changes \n"
         write_to_log(log_file, no_change_message)
-        # print(no_change_message)
+        print(no_change_message)
 
 
 def main(url, title: str, browser):
@@ -174,4 +218,4 @@ def main(url, title: str, browser):
 
 
 if __name__ == "__main__":
-    main("https://support.sonos.com/s/article/3521?language=en_US", "s2", "chromium")
+    main("https://support.sonos.com/s/article/3521?language=en_US", "s2", "chrome")

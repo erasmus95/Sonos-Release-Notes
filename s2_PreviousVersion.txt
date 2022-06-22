@@ -1,0 +1,66 @@
+Current software version
+                         <br/>
+                        </h2>
+                        <h2 data-aura-rendered-by="12:321;a" id="14.10">
+                         14.10
+                        </h2>
+                        <p data-aura-rendered-by="12:321;a">
+                         <strong>
+                          Release date:
+                         </strong>
+                         6/21/2022
+                        </p>
+                        <hr data-aura-rendered-by="12:321;a"/>
+                        <div class="row" data-aura-rendered-by="12:321;a">
+                         <div class="large-8 columns">
+                          <p>
+                          </p>
+                          <h4>
+                           In this update:
+                          </h4>
+                          <ul>
+                           <li>
+                            Improvements around delayed audio with home theater surrounds and Subs, as well as audio dropouts due to delayed audio.
+                           </li>
+                           <li>
+                            Bug fixes and performance enhancements.
+                           </li>
+                          </ul>
+                          <p>
+                          </p>
+                          <p>
+                          </p>
+                         </div>
+                         <div class="large-4 columns">
+                          <p>
+                          </p>
+                          <h4>
+                           System requirements
+                          </h4>
+                          <ul>
+                           <li>
+                            Android 8.0 or later
+                           </li>
+                           <li>
+                            iOS 12 or later
+                           </li>
+                           <li>
+                            iPadOS 13 or later
+                           </li>
+                           <li>
+                            macOS 10.11 or later
+                           </li>
+                           <li>
+                            Windows 8 or later
+                           </li>
+                           <li>
+                            Fire OS 7 and higher
+                           </li>
+                          </ul>
+                         </div>
+                        </div>
+                        <p data-aura-rendered-by="12:321;a">
+                        </p>
+                        <p data-aura-rendered-by="12:321;a">
+                        </p>
+                        <h2 data-aura-rendered-by="12:321;a">
