@@ -1,0 +1,52 @@
+1655930024098	geckodriver	INFO	Listening on 127.0.0.1:34335
+1655930024605	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "54219" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilevEcD2j"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1655930025277	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:54219
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilevEcD2j/search.json.mozlz4", (void 0)))
+1655930026415	Marionette	INFO	Listening on port 37751
+DevTools listening on ws://localhost:54219/devtools/browser/3e46fc25-a5f4-40ab-bcbd-3da322cb0551
+Read port: 37751
+1655930026540	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1655930032085	Marionette	INFO	Stopped listening on port 37751
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1655930256565	geckodriver	INFO	Listening on 127.0.0.1:42351
+1655930256570	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "52841" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileGHF1gj"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1655930257251	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:52841
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileGHF1gj/search.json.mozlz4", (void 0)))
+1655930258346	Marionette	INFO	Listening on port 40721
+Read port: 40721
+1655930258402	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:52841/devtools/browser/e6db0b80-7f98-4221-8d85-d5f931a66e28
+1655930263590	Marionette	INFO	Stopped listening on port 40721
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1655930369712	geckodriver	INFO	Listening on 127.0.0.1:49401
+1655930369716	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "56461" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileI3echf"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1655930370400	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:56461
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileI3echf/search.json.mozlz4", (void 0)))
+1655930371516	Marionette	INFO	Listening on port 38389
+Read port: 38389
+1655930371535	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:56461/devtools/browser/0ac2b9f4-3b4c-4dff-b59a-24411aa51ff1
+1655930378492	Marionette	INFO	Stopped listening on port 38389
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+

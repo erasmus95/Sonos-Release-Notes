@@ -182,20 +182,20 @@ def site_changes(siteaddress: str, title: str, browser: str):
     CurVersion = read_previous_version(compareVersion_file)
     CurVersion = re.sub(' data-aura-rendered-by="\d\d:\d\d\d;a"','',CurVersion)
     
-    print(CurVersion)
-    print("vs.")
-    print(PrevVersion)
+    #print(CurVersion)
+    #print("vs.")
+    #print(PrevVersion)
     if PrevVersion != CurVersion:
-        print('Current version is different')
-        # on the first run - just memorize the page
-        print(FirstRun)
+        #print('Current version is different')
+        # on the first run - memorize the page only, no alerts
+        #print('FirstRun =',FirstRun)
         if FirstRun == True:
             PrevVersion = CurVersion
             Write_To_File(PreviousVersion_file, CurVersion)
             # FirstRun = False
             start_message = str(datetime.now()) + " - Start Monitoring " + url
             write_to_log(log_file, start_message + "\n")
-            print (start_message)
+            #print (start_message)
         else:
             change_message = str(datetime.now()) + " - Changes detected"
             write_to_log(log_file, change_message + "\n")
@@ -220,7 +220,7 @@ def site_changes(siteaddress: str, title: str, browser: str):
     else:
         no_change_message = str(datetime.now()) + " - " + "No Changes \n"
         write_to_log(log_file, no_change_message)
-        print(no_change_message)
+        #print(no_change_message)
 
 
 def main(url, title: str, browser):
