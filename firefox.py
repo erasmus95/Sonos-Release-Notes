@@ -12,7 +12,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 def get_soup(siteaddress):
     options = webdriver.FirefoxOptions()
     # using headless so that a window doesn't pop-up and need to load as well
-    options.headless = False
+    options.headless = True
     try:
         service = Service('/usr/bin/geckodriver')
     except ValueError:

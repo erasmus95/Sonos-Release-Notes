@@ -180,8 +180,10 @@ def site_changes(siteaddress: str, title: str, browser: str):
     CurVersion =current_version(soup)
     Write_To_File(compareVersion_file, CurVersion)
     CurVersion = read_previous_version(compareVersion_file)
+    #if browser == 'firefox':
     CurVersion = re.sub(' data-aura-rendered-by="\d\d:\d\d\d;a"','',CurVersion)
-    
+    #else:
+    #    CurVersion = re.sub('  data-aura-rendered-by="\d\d:\d\d\d;a"','',CurVersion)
     #print(CurVersion)
     #print("vs.")
     #print(PrevVersion)
@@ -199,12 +201,13 @@ def site_changes(siteaddress: str, title: str, browser: str):
         else:
             change_message = str(datetime.now()) + " - Changes detected"
             write_to_log(log_file, change_message + "\n")
-            print (change_message)
+            #print (change_message)
             OldPage = PrevVersion.splitlines()
             NewPage = CurVersion.splitlines()
             # compare versions and highlight changes using difflib
-            # d = difflib.Differ()
-            # diff = d.compare(OldPage, NewPage)
+            #d = difflib.Differ()
+            #difference = d.compare(OldPage, NewPage)
+            #print(difference)
             diff = difflib.context_diff(OldPage, NewPage, n=10)
             out_text = "\n".join(
                 [ll.rstrip() for ll in "\n".join(diff).splitlines() if ll.strip()]
@@ -212,7 +215,7 @@ def site_changes(siteaddress: str, title: str, browser: str):
             write_to_log(updates_file, out_text)
             write_to_log(log_file, str(datetime.now()) + " - " + "Update detected \n")
             #email_alert(out_text)
-            fancy_email_alert(NewPage)
+            ##fancy_email_alert(NewPage)
             # OldPage = NewPage
             # print ('\n'.join(diff))
             # PrevVersion = CurVersion

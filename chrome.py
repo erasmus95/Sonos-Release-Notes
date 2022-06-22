@@ -13,7 +13,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 def get_soup(siteaddress):
 
     options = webdriver.ChromeOptions()
-    #options.add_argument('--headless')
+    options.add_argument('--headless')
     #options.add_experimental_option('excludeSwitches', ['enable-logging'])
     #try:
     #    s = Service(ChromeDriverManager().install())
