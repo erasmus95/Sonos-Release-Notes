@@ -235,3 +235,17 @@ JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Pha
 ###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
 
 Sandbox: Unexpected EOF, op 0 flags 00 path /proc/cpuinfo
+1658094336842	geckodriver	INFO	Listening on 127.0.0.1:57431
+1658094339853	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "57432" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\GREGOR~1\\AppData\\Local\\Temp\\rust_mozprofilebp4z9A"
+*** You are running in headless mode.
+1658094340114	Marionette	INFO	Marionette enabled
+1658094340118	Marionette	INFO	Listening on port 57454
+WebDriver BiDi listening on ws://localhost:57432
+Read port: 57454
+1658094340237	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\GREGOR~1\\AppData\\Local\\Temp\\rust_mozprofilebp4z9A\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:57432/devtools/browser/e5259bfd-814f-45ee-b013-a96a54627f62
+1658094346347	Marionette	INFO	Stopped listening on port 57454
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 694: TypeError: this.tablesData[table] is undefined
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
