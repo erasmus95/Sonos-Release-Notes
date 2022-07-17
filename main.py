@@ -1,15 +1,17 @@
 #!user/bin/env python3
-import urllib3
 
 urllib3.disable_warnings()
 import difflib
 import os
+import re
 import smtplib
 from datetime import datetime
 from email.message import EmailMessage
-from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import re
+from email.mime.text import MIMEText
+
+import urllib3
+
 
 def is_initial_run(file: str):
     """
@@ -231,4 +233,4 @@ def main(url, title: str, browser):
 
 
 if __name__ == "__main__":
-    main("https://support.sonos.com/s/article/3521?language=en_US", "s2", "chrome")
+    main("https://support.sonos.com/s/article/3521?language=en_US", "s2", "firefox")
