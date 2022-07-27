@@ -204,13 +204,21 @@ def site_changes(siteaddress: str, title: str, browser: str):
             fancy_email_alert(NewPage)
             send_to_reddit(CurVersion)
             Write_To_File(PreviousVersion_file, CurVersion)
+            print_last_log(log_file)
     else:
         no_change_message = str(datetime.now()) + " - " + "No Changes \n"
         write_to_log(log_file, no_change_message)
+        print_last_log(log_file)
 
+def print_last_log(logfile):
+    with open(logfile, "r") as f:
+        for line in f: pass
+        print(line) #this is the last line of the file
 
 def main(url, title: str, browser):
     site_changes(url, title, browser)
+    
+
 
 
 if __name__ == "__main__":
