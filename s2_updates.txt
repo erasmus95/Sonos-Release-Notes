@@ -2093,4 +2093,174 @@
                           </p>
                           <hr/>
                           <div class="row">
+                           <div class="large-8 columns">***
+---
+***************
+*** 1,24 ****
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2 id="14.12">
+                           14.12
+                          </h2>
+!                         <p>
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+!                         <hr/>
+!                         <div class="row">
                            <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Added a new
+                              <a href="https://support.sonos.com/s/article/5085" target="_blank">
+--- 1,24 ----
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2  id="14.12">
+                           14.12
+                          </h2>
+!                         <p >
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+!                         <hr />
+!                         <div class="row" >
+                           <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Added a new
+                              <a href="https://support.sonos.com/s/article/5085" target="_blank">
+***************
+*** 93,107 ****
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p>
+                          </p>
+!                         <p>
+                          </p>
+!                         <h2>
+--- 93,107 ----
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p >
+                          </p>
+!                         <p >
+                          </p>
+!                         <h2 >***
+---
+***************
+*** 1,24 ****
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2  id="14.12">
+                           14.12
+                          </h2>
+!                         <p >
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+!                         <hr />
+!                         <div class="row" >
+                           <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Added a new
+                              <a href="https://support.sonos.com/s/article/5085" target="_blank">
+--- 1,24 ----
+  Current software version
+                           <br/>
+                          </h2>
+!                         <h2 id="14.12">
+                           14.12
+                          </h2>
+!                         <p>
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+!                         <hr/>
+!                         <div class="row">
+                           <div class="large-8 columns">
+                            <p>
+                            </p>
+                            <h4>
+                             In this update:
+                            </h4>
+                            <ul>
+                             <li>
+                              Added a new
+                              <a href="https://support.sonos.com/s/article/5085" target="_blank">
+***************
+*** 93,107 ****
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p >
+                          </p>
+!                         <p >
+                          </p>
+!                         <h2 >
+--- 93,107 ----
+                             </li>
+                             <li>
+                              Windows 8 or later
+                             </li>
+                             <li>
+                              Fire OS 7 and higher
+                             </li>
+                            </ul>
+                           </div>
+                          </div>
+!                         <p>
+                          </p>
+!                         <p>
+                          </p>
+!                         <h2>
