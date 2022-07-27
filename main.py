@@ -1,6 +1,4 @@
 #!user/bin/env python3
-
-
 import difflib
 import os
 import re
@@ -10,9 +8,11 @@ from email.message import EmailMessage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from post_to_reddit import Reddit_Post
 import markdownify
 import urllib3
+
+from post_to_reddit import Reddit_Post
+
 urllib3.disable_warnings()
 
 def is_initial_run(file: str):
