@@ -54,3 +54,17 @@
 2022-06-22 18:15:08.150837 - No Changes 
 2022-07-17 17:45:13.915957 - No Changes 
 2022-07-17 17:45:46.803908 - No Changes 
+2022-07-25 15:34:14.678908 - Changes detected
+2022-07-25 15:34:14.680118 - Update detected 
+2022-07-25 15:59:28.894832 - No Changes 
+2022-07-25 16:00:50.014869 - Start Monitoring https://support.sonos.com/s/article/3521?language=en_US
+2022-07-25 16:01:51.019772 - Changes detected
+2022-07-25 16:01:51.021091 - Update detected 
+2022-07-25 17:35:17.002866 - No Changes 
+2022-07-25 17:37:12.275807 - Changes detected
+2022-07-25 17:37:12.277694 - Update detected 
+2022-07-25 17:38:23.803944 - Changes detected
+2022-07-25 17:38:23.805627 - Update detected 
+2022-07-25 19:58:45.785059 - No Changes 
+2022-07-25 20:05:41.344873 - Changes detected
+2022-07-25 20:05:41.346893 - Update detected 

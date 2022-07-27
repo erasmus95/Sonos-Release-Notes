@@ -5,3 +5,8 @@ urllib
 difflib
 certifi
 hasblib
+markdownify
+praw
+json
+requests
+selenium
