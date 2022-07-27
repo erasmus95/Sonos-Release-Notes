@@ -100,21 +100,15 @@ def email_alert(message: str):
     server.quit()
 
 def fancy_email_alert(message: str):
-
     # create an email message with just a subject line,
     msg = MIMEMultipart()
     msg["From"] = "gregoryrobben@gmail.com"
     msg["To"] = "gregoryrobben@gmail.com"
     msg["Subject"] = "Sonos app update!"
-    #msg.set_payload(
-    #    message.replace("Current", "Previous", 1).encode(
-    #        encoding="UTF-8", errors="strict"
-    #    )
-    #)
+
     msg.attach(MIMEText("".join(message),'html'))#.replace("Current", "Previous", 1), 'html'))
     
     text = msg.as_string()
-
     
     ## set the 'from' address,
     fromaddr = "gregoryrobben@gmail.com"
@@ -127,15 +121,8 @@ def fancy_email_alert(message: str):
     try:
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
-        # add my account login name and password,
+        ## add my account login name and password,
         server.login("gregoryrobben@gmail.com", "ujsazigsqebantxz")
-
-    # # Print the email's contents
-        #print("From: " + fromaddr)
-        #print("To: " + str(toaddrs))
-        #print("Message: " + message.replace("Current", "Previous", 1))
-
-        ## send the email
         server.sendmail(fromaddr,toaddrs,text)
     finally:
         ## disconnect from the server
@@ -144,7 +131,7 @@ def fancy_email_alert(message: str):
 def send_to_reddit(text):
     start_of_version = text.find("\n",text.find("</h2>")+10)
     end_of_version = text.find("</h2>",text.find("</h2>")+1)
-    title = "New Sonos S2 Firmware Version Available: " + (text[start_of_version:end_of_version].strip())
+    title = "Sonos S2 Firmware v." + (text[start_of_version:end_of_version].strip()) + " Avaliable"
 
     body = text[text.find("\n"):]
     markeddown = markdownify.markdownify(body, heading_style="ATX")
@@ -184,7 +171,6 @@ def site_changes(siteaddress: str, title: str, browser: str):
             + "\n"
         )
         write_to_log(log_file, error_msg)
-        # print(str(datetime.now()) + " - Waiter! Waiter! There's a fly in my soup!")
         exit()  # if there is a fly in the soup we are leaving
 
     # compare the page text to the previous version
@@ -194,34 +180,20 @@ def site_changes(siteaddress: str, title: str, browser: str):
     CurVersion =current_version(soup)
     Write_To_File(compareVersion_file, CurVersion)
     CurVersion = read_previous_version(compareVersion_file)
-    #if browser == 'firefox':
     CurVersion = re.sub(' data-aura-rendered-by="\d\d:\d\d\d;a"','',CurVersion)
-    #else:
-    #    CurVersion = re.sub('  data-aura-rendered-by="\d\d:\d\d\d;a"','',CurVersion)
-    #print(CurVersion)
-    #print("vs.")
-    #print(PrevVersion)
+   
     if PrevVersion != CurVersion:
-        #print('Current version is different')
         # on the first run - memorize the page only, no alerts
-        #print('FirstRun =',FirstRun)
         if FirstRun == True:
             PrevVersion = CurVersion
             Write_To_File(PreviousVersion_file, CurVersion)
-            # FirstRun = False
             start_message = str(datetime.now()) + " - Start Monitoring " + url
             write_to_log(log_file, start_message + "\n")
-            #print (start_message)
         else:
             change_message = str(datetime.now()) + " - Changes detected"
             write_to_log(log_file, change_message + "\n")
-            #print (change_message)
             OldPage = PrevVersion.splitlines()
             NewPage = CurVersion.splitlines()
-            # compare versions and highlight changes using difflib
-            #d = difflib.Differ()
-            #difference = d.compare(OldPage, NewPage)
-            #print(difference)
             diff = difflib.context_diff(OldPage, NewPage, n=10)
             out_text = "\n".join(
                 [ll.rstrip() for ll in "\n".join(diff).splitlines() if ll.strip()]
@@ -231,14 +203,10 @@ def site_changes(siteaddress: str, title: str, browser: str):
             #email_alert(out_text)
             fancy_email_alert(NewPage)
             send_to_reddit(CurVersion)
-            # OldPage = NewPage
-            # print ('\n'.join(diff))
-            # PrevVersion = CurVersion
             Write_To_File(PreviousVersion_file, CurVersion)
     else:
         no_change_message = str(datetime.now()) + " - " + "No Changes \n"
         write_to_log(log_file, no_change_message)
-        #print(no_change_message)
 
 
 def main(url, title: str, browser):
