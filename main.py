@@ -164,7 +164,7 @@ def site_changes(siteaddress: str, title: str, browser: str):
     # determin if this is the first run of the script for the given site.
     isFirstRun = is_first_run(PreviousVersion_file)
     if isFirstRun:
-        PrevVersion = ""
+        LatestVersion = ""
     else:
         PrevVersion = read_file(PreviousVersion_file)
         LatestVersion = read_file(LatestVersion_file)
