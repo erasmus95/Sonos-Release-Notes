@@ -1,0 +1,103 @@
+***
+---
+***************
+*** 1,15 ****
+  Current software version
+                           <br/>
+                          </h2>
+                          <h2 id="14.12">
+!                          14.10
+                          </h2>
+                          <p>
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+                          <hr/>
+                          <div class="row">
+                           <div class="large-8 columns">
+--- 1,15 ----
+  Current software version
+                           <br/>
+                          </h2>
+                          <h2 id="14.12">
+!                          14.12
+                          </h2>
+                          <p>
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+                          <hr/>
+                          <div class="row">
+                           <div class="large-8 columns">***
+---
+***************
+*** 1,15 ****
+  Current software version
+                           <br/>
+                          </h2>
+                          <h2 id="14.12">
+!                          14.10
+                          </h2>
+                          <p>
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+                          <hr/>
+                          <div class="row">
+                           <div class="large-8 columns">
+--- 1,15 ----
+  Current software version
+                           <br/>
+                          </h2>
+                          <h2 id="14.12">
+!                          14.12
+                          </h2>
+                          <p>
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+                          <hr/>
+                          <div class="row">
+                           <div class="large-8 columns">***
+---
+***************
+*** 1,15 ****
+  Current software version
+                           <br/>
+                          </h2>
+                          <h2 id="14.12">
+!                          14.10
+                          </h2>
+                          <p>
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+                          <hr/>
+                          <div class="row">
+                           <div class="large-8 columns">
+--- 1,15 ----
+  Current software version
+                           <br/>
+                          </h2>
+                          <h2 id="14.12">
+!                          14.12
+                          </h2>
+                          <p>
+                           <strong>
+                            Release date:
+                           </strong>
+                           7/19/2022
+                          </p>
+                          <hr/>
+                          <div class="row">
+                           <div class="large-8 columns">
