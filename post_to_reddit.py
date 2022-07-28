@@ -1,11 +1,13 @@
 #source reddit-poster/bin/activate
 
 import json
-
+import os
 import praw
 import requests
 
-credentials = 'client_secrets.json'
+here = os.path.dirname(os.path.abspath(__file__))
+credentials = os.path.join(here, 'client_secrets.json')
+#credentials = 'client_secrets.json'
 
 with open(credentials) as f:
     creds = json.load(f)
@@ -39,7 +41,7 @@ class Reddit_Post:
         #print(self.selftext)
         subreddit.submit(self.title,selftext=self.selftext)
 
-#redditUpdate = Reddit_Poster(title,selftext)
+#redditUpdate = Reddit_Post(title,selftext)
 #redditUpdate.post_to_reddit()
 
 #subreddit.submit(title,selftext=selftext)
