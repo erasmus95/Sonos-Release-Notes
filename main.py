@@ -38,7 +38,7 @@ def soup_of_the_day(soup: str):
     #scrubed_aura_time = re.sub('\s?data-aura-rendered-by="\d\d:\d\d\d;a"\s?',soup[start:end])
     
     #print(scrubed_aura_time)
-    return soup[start:end]#.replace(' data-aura-rendered-by="12:319;a"',"").strip()  # .encode(encoding = 'UTF-8', errors = 'strict')
+    return soup[start:end] #.replace(' data-aura-rendered-by="12:319;a"',"").strip()  # .encode(encoding = 'UTF-8', errors = 'strict')
     
 def Write_To_File(file_to_write_to: str, text_to_write):
     """
