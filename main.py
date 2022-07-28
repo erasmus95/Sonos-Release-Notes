@@ -224,8 +224,8 @@ def site_changes(siteaddress: str, title: str, browser: str):
             #write_to_log(log_file, str(datetime.now()) + " - " + "Update detected \n")
             
             #email_alert(out_text)
-            #fancy_email_alert(NewPage)
-            #send_to_reddit(CurVersion)
+            fancy_email_alert(NewPage)
+            send_to_reddit(CurVersion)
 
             ##Update the latest version file to the latest version
             Write_To_File(PreviousVersion_file, LatestVersion)
