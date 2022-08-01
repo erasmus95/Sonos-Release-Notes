@@ -1,0 +1,108 @@
+Current software version
+                         <br/>
+                        </h2>
+                        <h2 id="14.12">
+                         14.12
+                        </h2>
+                        <p>
+                         <strong>
+                          Release date:
+                         </strong>
+                         7/19/2022
+                        </p>
+                        <hr/>
+                        <div class="row">
+                         <div class="large-8 columns">
+                          <p>
+                          </p>
+                          <h4>
+                           In this update:
+                          </h4>
+                          <ul>
+                           <li>
+                            Added a new
+                            <a href="https://support.sonos.com/s/article/5085" target="_blank">
+                             WiFi Power Save
+                            </a>
+                            setting for Roam and Roam SL to help extend battery life when connected to wireless networks.
+                            <br/>
+                           </li>
+                           <li>
+                            Added a setting for
+                            <a href="https://support.sonos.com/s/article/5113" target="_blank">
+                             Multi-product Setup
+                            </a>
+                            in the Sonos app, allowing you to set up multiple Sonos products in a row before applying any necessary software updates.
+                            <br/>
+                           </li>
+                           <li>
+                            Made improvements to the clarity of Arc’s audio while playing dialogue.
+                            <br/>
+                           </li>
+                           <li>
+                            You can now use the S2 app to downgrade some Sonos products to S1 in order to add them to an S1 system.
+                            <a href="https://support.sonos.com/s/article/5097" target="_blank">
+                             Learn more
+                            </a>
+                            .
+                            <br/>
+                           </li>
+                           <li>
+                            Some
+                            <a href="https://support.sonos.com/s/article/126" target="_blank">
+                             older Sonos products
+                            </a>
+                            can now connect to 802.11a 5Ghz Wi-Fi networks.
+                           </li>
+                          </ul>
+                          <p>
+                          </p>
+                          <h4>
+                           System requirements changes:
+                          </h4>
+                          <ul>
+                           <li>
+                            The Sonos app on iOS 12, iOS 13, and iPadOS 13 will
+                            <a href="https://support.sonos.com/s/article/4779" target="_blank">
+                             no longer receive software updates
+                            </a>
+                            but can still be used to control commonly-used features.
+                           </li>
+                          </ul>
+                          <p>
+                          </p>
+                         </div>
+                         <div class="large-4 columns">
+                          <p>
+                          </p>
+                          <h4>
+                           System requirements
+                          </h4>
+                          <ul>
+                           <li>
+                            Android 8.0 or later
+                           </li>
+                           <li>
+                            iOS 14 or later
+                           </li>
+                           <li>
+                            iPadOS 14 or later
+                           </li>
+                           <li>
+                            macOS 10.11 or later
+                           </li>
+                           <li>
+                            Windows 8 or later
+                           </li>
+                           <li>
+                            Fire OS 7 and higher
+                           </li>
+                          </ul>
+                         </div>
+                        </div>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <h2>
+                         

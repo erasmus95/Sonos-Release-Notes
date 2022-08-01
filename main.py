@@ -127,14 +127,16 @@ def fancy_email_alert(message: str):
         ## disconnect from the server
         server.quit()
     
-def send_to_reddit(text):
+def send_to_reddit(text,directory):
     start_of_version = text.find("\n",text.find("</h2>")+10)
     end_of_version = text.find("</h2>",text.find("</h2>")+1)
     title = "Sonos S2 Firmware v." + (text[start_of_version:end_of_version].strip()) + " Avaliable"
 
     body = text[text.find("\n"):]
     markeddown = markdownify.markdownify(body, heading_style="ATX")
-    update_post = Reddit_Post(title,markeddown)
+    credentials = os.path.join(directory,"client_secrets.json")
+    
+    update_post = Reddit_Post(title,markeddown,'GregsSandbox',credentials)
     update_post.post_to_reddit()
 
 def site_changes(siteaddress: str, title: str, browser: str):
@@ -205,9 +207,9 @@ def site_changes(siteaddress: str, title: str, browser: str):
             Write_To_File(LatestVersion_file, CurVersion)
             start_message = str(datetime.now()) + " - Start Monitoring " + url
             write_to_log(log_file, start_message + "\n")
-            
+            #send_to_reddit(start_message,here)
         ##The previous version and current versions do not match
-        else:
+        else: #yay there's an update!
             change_message = str(datetime.now()) + " - Changes detected"
             write_to_log(log_file, change_message + "\n")
             
@@ -225,7 +227,7 @@ def site_changes(siteaddress: str, title: str, browser: str):
             
             #email_alert(out_text)
             fancy_email_alert(NewPage)
-            send_to_reddit(CurVersion)
+            send_to_reddit(CurVersion,here)
 
             ##Update the latest version file to the latest version
             Write_To_File(PreviousVersion_file, LatestVersion)
@@ -233,6 +235,7 @@ def site_changes(siteaddress: str, title: str, browser: str):
             
     else:
         no_change_message = str(datetime.now()) + " - " + "No Changes \n"
+        #send_to_reddit(no_change_message,here)
         write_to_log(log_file, no_change_message)
         
 
