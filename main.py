@@ -136,7 +136,7 @@ def send_to_reddit(text,directory):
     markeddown = markdownify.markdownify(body, heading_style="ATX")
     credentials = os.path.join(directory,"client_secrets.json")
     
-    update_post = Reddit_Post(title,markeddown,'GregsSandbox',credentials)
+    update_post = Reddit_Post(title,markeddown,'Sonos',credentials)
     update_post.post_to_reddit()
 
 def site_changes(siteaddress: str, title: str, browser: str):
