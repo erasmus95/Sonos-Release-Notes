@@ -247,7 +247,7 @@ def print_last_log(title):
         print(line) #this is the last line of the file
 
 def empty_log_files(updates,previousVersion,monitoring_log,compareVersion,currentVersion):
-    open(updates, 'w').close()
+    #open(updates, 'w').close()
     open(previousVersion, 'w').close()
     open(monitoring_log, 'w').close()
     open(compareVersion, 'w').close()
