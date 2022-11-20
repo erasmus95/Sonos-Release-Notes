@@ -14,7 +14,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 def get_soup(siteaddress):
 
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
+    #options.add_argument('--headless')
     #options.add_experimental_option('excludeSwitches', ['enable-logging'])
     #try:
     #    s = Service(ChromeDriverManager().install())
@@ -27,7 +27,7 @@ def get_soup(siteaddress):
     try:
         browser.get(siteaddress)
         timeout_in_seconds = 1200
-        WebDriverWait(browser, timeout_in_seconds).until(ec.presence_of_element_located((By.CLASS_NAME, 'row')))
+        WebDriverWait(browser, timeout_in_seconds).until(ec.presence_of_element_located((By.CLASS_NAME, 'm1wsgu2')))
         html = browser.page_source
         # parse the webpage for html
         soup = BeautifulSoup(html, 'html.parser')
@@ -37,7 +37,7 @@ def get_soup(siteaddress):
         #print(soup)
     except TimeoutException:
         #print("Did not find class_name 'row'...giving up...")
-        soup = "Error: Did not find class_name 'row'...could not parse webpage" 
+        soup = "Error: Did not find class_name 'm1wsgu2'...could not parse webpage" 
     finally:
         browser.quit()
     return soup

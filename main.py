@@ -16,6 +16,11 @@ from post_to_reddit import Reddit_Post
 
 urllib3.disable_warnings()
 
+#TODO identify firmware version # and store for comparison when update is detected
+#TODO store the actual change notes for comparison
+#TODO store latest reddit post ID for future reference 
+#TODO if the version is the same, but the notes change...go back and strike through old reddit post and append new notes with date of change
+
 def is_first_run(file: str):
     """
     Tests whether or not this is the initial run of the script by counting the number of lines in the given file. If greater than 1 it is not the initial run
